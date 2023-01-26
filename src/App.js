@@ -5,17 +5,26 @@ import { TodoSearch } from "./TodoSearch";
 import { CreateTodoButton } from "./CreateTodoButton";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
+import { TodoScreen } from "./TodoScreen";
+import { TodoTitle } from "./TodoTitle";
 
 const todos = [
   {text: "Cortar cebolla", completed: true},
   {text: "Tomar curso de React", completed: false},
   {text: "Llorar", completed: false},
+  {text: "Programar", completed: false},
+  {text: "Entrenar", completed: false},
 ]
 
 
 function App(props) {
   return (
     <React.Fragment>
+
+      <TodoScreen>
+
+      <TodoTitle/>
+
       <TodoCounter/>
 
       <TodoSearch/>
@@ -31,6 +40,8 @@ function App(props) {
       </TodoList>
 
       <CreateTodoButton/>
+
+      </TodoScreen>
       
     </React.Fragment>
   );
