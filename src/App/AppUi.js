@@ -8,6 +8,9 @@ import { TodoItem } from "../TodoItem";
 import { TodoScreen } from "../TodoScreen";
 import { TodoTitle } from "../TodoTitle";
 import { TodoForm } from "../TodoForm";
+import { TodosError } from "../TodosError";
+import { TodosLoading } from "../TodosLoading";
+import { EmptyTodos } from "../EmptyTodos";
 import {Modal} from "../Modal";
 
 function AppUI(){
@@ -32,9 +35,9 @@ function AppUI(){
 
             <TodoSearch/>
             <TodoList>
-                {error && <p className="loadingMessage">Lo sentimos, hubo un error...</p>}
-                {loading && <p className="loadingMessage">Estamos cargando, no desesperes...</p>}
-                {(!loading && !searchedTodos.length) && <p className="loadingMessage">¡Crea tu primer TODO!</p>}
+                {error && <TodosError error={error}/>}
+                {loading && <TodosLoading/>}
+                {(!loading && !searchedTodos.length) && <EmptyTodos/>}
 
                 {searchedTodos.map(todo => (
                 <TodoItem 
