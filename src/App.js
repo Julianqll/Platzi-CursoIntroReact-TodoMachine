@@ -8,16 +8,38 @@ import { TodoItem } from "./TodoItem";
 import { TodoScreen } from "./TodoScreen";
 import { TodoTitle } from "./TodoTitle";
 
-const todos = [
+const defaultTodos = [
   {text: "Cortar cebolla", completed: true},
-  {text: "Tomar curso de React", completed: false},
+  {text: "Tomar curso de React", completed: true},
   {text: "Llorar", completed: false},
   {text: "Programar", completed: false},
   {text: "Entrenar", completed: false},
 ]
 
 
-function App(props) {
+function App() {
+
+  //El useState devuelve un array con 2 pos [state, func setState]
+  const [searchValue, setSearchValue] = React.useState('');
+
+  const [todos, setTodos] = React.useState(defaultTodos);
+
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const totalTodos = todos.length;
+
+  let searchedTodos = [];
+
+  if (!searchValue.length >= 1){
+    searchedTodos = todos;
+  }
+  else{
+    searchedTodos = todos.filter(todo => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return todoText.includes(searchText);
+    });
+  }
+
   return (
     <React.Fragment>
 
@@ -25,12 +47,18 @@ function App(props) {
 
       <TodoTitle/>
 
-      <TodoCounter/>
+      <TodoCounter
+        total={totalTodos}
+        completed={completedTodos}
+      />
 
-      <TodoSearch/>
+      <TodoSearch
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
 
       <TodoList>
-        {todos.map(todo => (
+        {searchedTodos.map(todo => (
           <TodoItem 
             key={todo.text} 
             text={todo.text}
