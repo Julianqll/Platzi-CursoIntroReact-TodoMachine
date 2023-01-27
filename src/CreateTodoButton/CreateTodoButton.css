@@ -12,6 +12,7 @@
     color: #FAFAFA;
     height: 64px;
     width: 64px;
+    z-index: 1;
   
     transform: translate(-50%, 0) rotate(0);
     transition: .3s ease;

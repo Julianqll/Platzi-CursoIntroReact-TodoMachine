@@ -7,6 +7,7 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { TodoScreen } from "../TodoScreen";
 import { TodoTitle } from "../TodoTitle";
+import {Modal} from "../Modal";
 
 function AppUI(){
 
@@ -15,7 +16,8 @@ function AppUI(){
         loading,
         searchedTodos,
         completeTodo,
-        deleteTodo
+        deleteTodo,
+        openModal,
     } = React.useContext(TodoContext);
 
     return (
@@ -43,7 +45,13 @@ function AppUI(){
                 />
                 ))}
             </TodoList>
-            
+
+            {!!openModal && (
+                <Modal>
+                <p>¿Estás seguro de eliminar este TODO?</p>
+                </Modal>
+            )}
+
             <CreateTodoButton/>
 
         </TodoScreen>
