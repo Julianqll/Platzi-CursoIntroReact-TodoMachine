@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Platzi-CursoIntroReact-TodoMachine/static/css/main.a81baaf8.css",
+    "main.js": "/Platzi-CursoIntroReact-TodoMachine/static/js/main.38b5b447.js",
+    "index.html": "/Platzi-CursoIntroReact-TodoMachine/index.html",
+    "main.a81baaf8.css.map": "/Platzi-CursoIntroReact-TodoMachine/static/css/main.a81baaf8.css.map",
+    "main.38b5b447.js.map": "/Platzi-CursoIntroReact-TodoMachine/static/js/main.38b5b447.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a81baaf8.css",
+    "static/js/main.38b5b447.js"
+  ]
+}
